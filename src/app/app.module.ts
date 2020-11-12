@@ -17,13 +17,15 @@ import { CreateBookComponent } from './Components/create-book/create-book.compon
 import { ListBookComponent } from './Components/list-book/list-book.component';
 
 import { AuthGuard } from './Guards/auth.guard';
+import { CreateGenreComponent } from './Components/create-genre/create-genre.component';
 
 const routesApp: Routes = [
   { path: '', component: HomeComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'login', component: LoginComponent },
   { path: 'create-book', canActivate: [AuthGuard], data: {only: 'Admin'}, component: CreateBookComponent },
-  { path: 'list-book', canActivate: [AuthGuard], component: ListBookComponent }
+  { path: 'list-book', canActivate: [AuthGuard], component: ListBookComponent },
+  { path: 'create-genre', canActivate: [AuthGuard], data: {only: 'Admin'}, component: CreateGenreComponent  }
 ]
 
 @NgModule({
@@ -35,7 +37,8 @@ const routesApp: Routes = [
     SignUpComponent,
     LoginComponent,
     CreateBookComponent,
-    ListBookComponent
+    ListBookComponent,
+    CreateGenreComponent
   ],
   imports: [
     BrowserModule,
