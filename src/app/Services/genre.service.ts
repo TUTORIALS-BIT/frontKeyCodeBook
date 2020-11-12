@@ -17,5 +17,9 @@ export class GenreService {
     return this.http.post<Genre>(`${this.apiURL}/genre/create`, formData)
   }
 
+  getAll(){
+    return this.http.get(`${this.apiURL}/genre/getAll`)
+  }
+
 
 }
