@@ -16,4 +16,12 @@ export class BookService {
   createBook(formData){
     return this.http.post<Book>(`${this.apiURL}/book/create`, formData)
   }
+
+  getAll(){
+    return this.http.get(`${this.apiURL}/book/getAll`)
+  }
+
+  updateBook(formData, idBook){
+    return this.http.put<Book>(`${this.apiURL}/book/update/${idBook}`, formData)
+  }
 }
