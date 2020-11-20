@@ -17,11 +17,16 @@ export class BookService {
     return this.http.post<Book>(`${this.apiURL}/book/create`, formData)
   }
 
-  getAll(){
-    return this.http.get(`${this.apiURL}/book/getAll`)
+  getAll(filter){
+    return this.http.get(`${this.apiURL}/book/getAll${filter}`)
+    //localhos:3000/book/getAll?searchBy=hghgh
   }
 
   updateBook(formData, idBook){
     return this.http.put<Book>(`${this.apiURL}/book/update/${idBook}`, formData)
+  }
+
+  deleteBook(idBook){
+    return this.http.delete(`${this.apiURL}/book/delete/${idBook}`)
   }
 }

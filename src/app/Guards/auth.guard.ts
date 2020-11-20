@@ -21,7 +21,10 @@ export class AuthGuard implements CanActivate {
       const infoUser = this.storageService.dataUser()
       if ( (infoUser.role == 'Admin' && route.data.only == 'Admin') || !route.data.only ){
         return true
-      }else{
+      }else if ( route.data.only.includes(infoUser.role) ){
+        return true
+      }
+      else{
         alert('No tienes permisos para ingrear a esa página')
         this.router.navigate(['/'])
         return false
