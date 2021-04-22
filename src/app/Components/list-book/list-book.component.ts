@@ -68,7 +68,12 @@ export class ListBookComponent implements OnInit {
   loadBook(){
     const filter = (typeof this.search == 'string' && this.search.length > 0) ? `?searchBy=${this.search}` : ''
     this.bookService.getAll(filter).subscribe(
-
+        (books)=>{
+          this.allBooks = books
+        },
+        (error) => {
+          console.error('Error -> ', error)
+        }
     )
   }
 

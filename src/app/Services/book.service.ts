@@ -7,7 +7,8 @@ import { Book } from '../Models/Book';
 })
 export class BookService {
 
-  apiURL: String = 'https://key-code-b.herokuapp.com';
+  //apiURL: String = 'https://key-code-b.herokuapp.com';
+  apiURL: String = 'http://localhost:3000';
 
   constructor(
     private http: HttpClient
